@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import Particles from "@/components/Particles.jsx";
+import { SiteFooter } from "@/components/site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +26,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
+      <head>
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/general-sans" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
-        {children}
+        <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+          <Particles className="w-full h-full" particleCount={100} particleColors={['#ffffff']} />
+        </div>
+        <div className="relative" style={{ zIndex: 1 }}>
+          {children}
+          <SiteFooter />
+        </div>
+        <Script src="https://cdn.botpress.cloud/webchat/v1/inject.js" />
+        <Script src="https://mediafiles.botpress.cloud/0fce6322-1e1a-471e-ba37-3e24f6561f31/webchat/config.js" defer />
       </body>
     </html>
   );
