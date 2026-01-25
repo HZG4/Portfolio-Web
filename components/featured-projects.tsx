@@ -26,7 +26,7 @@ export function FeaturedProjects({ mouseX, mouseY }: FeaturedProjectsProps) {
           />
         </a>
 
-        <a href="https://corinna-ai-drab.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <a href="https://corinna-ai-git-feature-knowledge-base-hzg4s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">
           <ProjectCard
             mouseX={mouseX}
             mouseY={mouseY}
